@@ -1,26 +1,17 @@
 public class RubFormat {
-    String format(double input) {
-        String rub;
-        int ending = (int) input % 100;
-        switch (ending % 10) {
-            case 1: {
-                rub = " рубль";
-                break;
-            }
-            case 2:
-            case 3:
-            case 4:
-            {rub = " рубля";
-                break;}
-            default : {
-                rub = " рублей";
-                break;
-            }
+    public static String format(double input) {
+        int ending = ((int) input);
+        String rub  = "рублей";
+        if (ending % 10 == 1) {
+            rub  = "рубль";
+        }
+        if ((ending % 10 >= 2) && (ending % 10 <= 4)) {
+            rub  = "рубля";
+        }
+        if ((ending % 100 >= 11) && (ending % 100 <= 20)) {
+            rub  = "рублей";
         }
         return rub;
     }
 }
-
-
-
 
